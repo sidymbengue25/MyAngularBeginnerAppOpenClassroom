@@ -1,0 +1,24 @@
+<li class="list-group-item"
+      [ngClass]="
+        {
+          'list-group-item-success':postItem.loveIts>0,
+          'list-group-item-danger':postItem.loveIts<0
+        }">
+  <div>
+    <h2>
+        {{postItem.title}}
+    </h2>
+    <strong class="createdAt">
+        {{postItem.created_at | date:'short' | uppercase}}
+    </strong>
+  </div>
+  <div><p class="content">{{postItem.content}}</p></div>
+  <button
+      class="btn btn-success" (click)="postItem.loveIts=postItem.loveIts+1">
+      Love it
+  </button>
+  <button
+      class="btn btn-danger" (click)="postItem.loveIts=postItem.loveIts-1">
+      Don't love it
+  </button>
+</li>
